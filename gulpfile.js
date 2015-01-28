@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp = require('gulp'),
+    to5 = require('gulp-6to5'),
     webserver = require('gulp-webserver'),
     sass = require('gulp-sass');
 
@@ -15,7 +16,13 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./build/styles'));
 });
 
-gulp.task('build', ['move', 'sass']);
+gulp.task('js', function() {
+  gulp.src('./src/js/**/*.js')
+    .pipe(to5())
+    .pipe(gulp.dest('./build/js'));
+});
+
+gulp.task('build', ['move', 'sass', 'js']);
 
 gulp.task('server', ['build'], function() {
   gulp.src('build')
@@ -24,5 +31,6 @@ gulp.task('server', ['build'], function() {
 
 gulp.watch('./src/**/*.html', ['move']);
 gulp.watch('./src/styles/**/*.scss', ['sass']);
+gulp.watch('./src/js/**/*.js', ['js']);
 
 gulp.task('default', ['server'], function() {});
