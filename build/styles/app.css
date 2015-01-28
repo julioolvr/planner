@@ -1,2 +1,15 @@
-h1 {
-  color: red; }
+.calendar {
+  text-align: center; }
+  .calendar .day {
+    background-color: #ff8080; }
+  .calendar .attendee {
+    height: 3em;
+    line-height: 3em; }
+  .calendar .attendee:nth-child(3n+0) {
+    background-color: #e3f589; }
+  .calendar .attendee:nth-child(3n+1) {
+    background-color: #89f5ad; }
+  .calendar .attendee:nth-child(3n+2) {
+    background-color: #89bff5; }
+  .calendar .attendee:nth-child(3n+3) {
+    background-color: #d189f5; }

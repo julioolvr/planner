@@ -1,3 +1,18 @@
-h1 {
-  color: red;
+.calendar {
+  text-align: center;
+
+  .day {
+    background-color: hsl(0, 100%, 75%);
+  }
+
+  .attendee {
+    height: 3em;
+    line-height: 3em;
+  }
+
+  @for $i from 1 through 4 {
+    .attendee:nth-child(3n+#{$i - 1}) {
+      background-color: hsl($i * 70, 85%, 75%);
+    }
+  }
 }

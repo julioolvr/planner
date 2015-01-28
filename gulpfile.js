@@ -15,9 +15,11 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./build/styles'));
 });
 
-gulp.task('server', ['move', 'sass'], function() {
+gulp.task('build', ['move', 'sass']);
+
+gulp.task('server', ['build'], function() {
   gulp.src('build')
-    .pipe(webserver());
+    .pipe(webserver({ host: '0.0.0.0' }));
 });
 
 gulp.watch('./src/**/*.html', ['move']);
