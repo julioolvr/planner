@@ -1,8 +1,8 @@
 'use strict';
 
 var gulp = require('gulp'),
+    webpack = require('gulp-webpack'),
     rename = require('gulp-rename'),
-    to5 = require('gulp-6to5'),
     webserver = require('gulp-webserver'),
     sass = require('gulp-sass');
 
@@ -18,12 +18,22 @@ gulp.task('sass', function() {
 });
 
 gulp.task('js', function() {
-  gulp.src('./src/js/**/*.{jsx,js}')
-    .pipe(to5())
+    webpack({
+      module: {
+        loaders: [
+          { test: /\.jsx?$/, exclude: /node_modules/, loader: '6to5-loader' }
+        ]
+      },
+      entry: './src/js/index.jsx',
+      output: {
+        filename: 'bundle.js'
+      },
+      devtool: '#inline-source-map'
+    })
     .pipe(rename(function(path) {
       path.extname = '.js';
     }))
-    .pipe(gulp.dest('./build/js'));
+    .pipe(gulp.dest('build/js'));
 });
 
 gulp.task('build', ['move', 'sass', 'js']);
