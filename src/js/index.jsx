@@ -1,13 +1,6 @@
 'use strict';
 
-var React = require('react');
+import AttendeeList from './components/attendeeList.jsx';
+import React from 'react';
 
-var Test = React.createClass({
-  render: function() {
-    return (
-      <div>
-        Hello, world!!
-      </div>
-    );
-  }
-});
+React.render(<AttendeeList />, document.getElementById('attendee-list'));
