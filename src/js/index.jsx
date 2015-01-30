@@ -1,6 +1,6 @@
 'use strict';
 
-import AttendeeList from './components/attendeeList.jsx';
+import App from './components/app.jsx';
 import React from 'react';
 
-React.render(<AttendeeList />, document.getElementById('attendee-list'));
+React.render(<App />, document.getElementById('app'));
