@@ -5,8 +5,8 @@ import Attendee from './attendee.jsx';
 
 export default React.createClass({
   render() {
-    let attendees = ['Alice', 'Bob', 'Carol', 'Darryl', 'Emma', 'Fish', 'Gary', 'Herbert', 'Ivan', 'John', 'Kevin'].map(function(name) {
-      return <Attendee name={name} />;
+    let attendees = this.props.attendees.map(function(name) {
+      return <Attendee name={name} key={name} />;
     });
 
     return (

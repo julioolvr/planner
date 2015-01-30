@@ -10,7 +10,7 @@ export default React.createClass({
         <div className="day">
           Friday 9/13
         </div>
-        <AttendeeList/>
+        <AttendeeList attendees={this.props.attendees}/>
       </div>
     );
   }
