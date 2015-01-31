@@ -6,13 +6,23 @@
   }
 
   .attendee {
-    height: 3em;
     line-height: 3em;
+    overflow: hidden;
+
+    &.add-attendee-enter {
+      height: 0em;
+      transition: height .5s ease-out;
+
+      &.add-attendee-enter-active {
+        height: 3em;
+      }
+    }
   }
 
-  @for $i from 1 through 4 {
+  @for $i from 2 through 4 {
     .attendee:nth-child(3n+#{$i - 1}) {
       background-color: hsl($i * 70, 85%, 75%);
     }
   }
 }
+

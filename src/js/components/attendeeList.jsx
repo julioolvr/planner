@@ -1,7 +1,9 @@
 'use strict';
 
-import React from 'react';
+import React from 'react/addons';
 import Attendee from './attendee.jsx';
+
+let TransitionGroup = React.addons.CSSTransitionGroup;
 
 export default React.createClass({
   render() {
@@ -11,7 +13,9 @@ export default React.createClass({
 
     return (
       <div class="attendees">
-        {attendees}
+        <TransitionGroup transitionName="add-attendee">
+          {attendees}
+        </TransitionGroup>
       </div>
     );
   }
