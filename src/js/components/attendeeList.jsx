@@ -12,7 +12,7 @@ export default React.createClass({
     });
 
     return (
-      <div class="attendees">
+      <div className="attendees">
         <TransitionGroup transitionName="add-attendee">
           {attendees}
         </TransitionGroup>
