@@ -9,7 +9,7 @@ export default React.createClass({
   render() {
     let attendees = this.props.attendees.map(function(name) {
       return <Attendee name={name} key={name} />;
-    });
+    }).toArray();
 
     return (
       <div className="attendees">

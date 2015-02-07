@@ -3,36 +3,19 @@
 import React from 'react';
 import Swipe from 'react-swipe';
 import AttendeeList from './attendeeList.jsx';
+import Day from './day.jsx';
 
 export default React.createClass({
+  onDayChanged(index) {
+    this.props.onDayChanged(this.props.dates.get(index).get('date'));
+  },
   render() {
+    let days = this.props.dates.map(date => <Day key={date.get('date')} date={date.get('date')} attendees={date.get('attendees')}/>).toArray();
+
     return (
       <div className="calendar">
-        <Swipe continuous={false}>
-          <div className="day">
-            <div className="day--date">
-              Friday 9/13
-            </div>
-            <AttendeeList attendees={this.props.attendees}/>
-          </div>
-          <div className="day">
-            <div className="day--date">
-              Saturday 9/14
-            </div>
-            <AttendeeList attendees={this.props.attendees}/>
-          </div>
-          <div className="day">
-            <div className="day--date">
-              Sunday 9/15
-            </div>
-            <AttendeeList attendees={this.props.attendees}/>
-          </div>
-          <div className="day">
-            <div className="day--date">
-              Monday 9/16
-            </div>
-            <AttendeeList attendees={this.props.attendees}/>
-          </div>
+        <Swipe continuous={false} callback={this.onDayChanged}>
+          {days}
         </Swipe>
       </div>
     );

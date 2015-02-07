@@ -1,8 +1,13 @@
 .calendar {
   text-align: center;
 
-  .day--date {
-    background-color: hsl(0, 100%, 75%);
+  .day {
+    float: left;
+    position: relative;
+
+    .day--date {
+      background-color: hsl(0, 100%, 75%);
+    }
   }
 
   .attendee {
