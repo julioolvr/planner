@@ -1,6 +1,9 @@
 'use strict';
 
-import App from './components/app.jsx';
+import routes from './routes.jsx';
+import Router from 'react-router';
 import React from 'react';
 
-React.render(<App />, document.getElementById('app'));
+Router.run(routes, function(Handler) {
+  React.render(<Handler/>, document.getElementById('app'));
+});
